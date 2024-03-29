@@ -6,8 +6,7 @@ const app = express();
 const tourRouter = require("./routes/tourRoutes");
 const usersRouter = require("./routes/userRoutes");
 
-//MIDDLEWARES
-console.log(process.env.NODE_ENV);
+
 if (process.env.NODE_ENV = 'development') {
     app.use(morgan("dev"));
 }
@@ -23,8 +22,6 @@ app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
-
-// ROUTES
 
 app.use("/api/v1/tours", tourRouter);
 app.use("/api/v1/users", usersRouter);
